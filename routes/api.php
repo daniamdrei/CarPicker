@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\Auth\LoginController;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\CarController;
 use App\Http\Controllers\API\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,4 +21,7 @@ Route::prefix('auth')->group(function(){
 Route::prefix('cars/{id}')->group(function(){
 
     Route::get('/' , [CategoryController::class , 'show']);
+    Route::get('details' , [CarController::class , 'CarDetails']);
+    Route::get('capability' , [CarController::class , 'CarCapability']);
+    Route::get('images' , [CarController::class , 'CarImages']);
 });

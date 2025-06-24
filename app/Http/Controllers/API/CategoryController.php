@@ -18,7 +18,7 @@ class CategoryController extends Controller
 
     public function show(string $id){
 
-        $category_id = Category::findOrFail($id);
+        $category_id = Category::find($id);
 
         if(!$category_id){
             return response()->json(['message'=>'this category not exist']);
