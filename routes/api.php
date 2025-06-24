@@ -15,5 +15,9 @@ Route::get('categories' , [CategoryController::class , 'index']);
 Route::prefix('auth')->group(function(){
     Route::post('login' , [AuthController::class , 'login']);
     Route::post('register' , [AuthController::class , 'register']);
+});
 
+Route::prefix('cars/{id}')->group(function(){
+
+    Route::get('/' , [CategoryController::class , 'show']);
 });

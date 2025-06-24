@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Car extends Model
 {
+    use HasFactory;
     protected $fillable =['maker_id' , 'car_model_id' , 'category_id' , 'name' , 'year' , 'avg_price' ,'basic_spec'];
 
 
@@ -15,7 +17,7 @@ class Car extends Model
 
 
     public function model(){
-        return $this->belongsTo(CarModel::class);
+        return $this->belongsTo(CarModel::class , 'car_model_id');
     }
 
 
@@ -41,5 +43,5 @@ class Car extends Model
     public function PrimaryImage(){
         return $this->hasOne(CarImage::class)->oldestOfMany();
     }
-    
+
 }
